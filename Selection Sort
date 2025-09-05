@@ -1,1 +1,58 @@
+public class Solution {
+    public static int[] bubbleSort(int[] nums) {
+        for(int i=0;i<nums.length-1;i++){
+            int count=0;
+            for(int j=0;j<nums.length-i-1;j++){
+                if(nums[j]>=nums[j+1]){
+                    int temp=nums[j+1];
+                    nums[j+1]=nums[j];
+                    nums[j]=temp;
+                    count++;
+                }
+            }
+            if(count==0){
+                    break;
+            }
+        }
+        return nums;
+    }
+    public static int[] selectionSort(int[] nums) {
+        for(int i=0;i<nums.length-1;i++){
+            int minimum=i;
+            for(int j=i+1;j<nums.length;j++){
+                if(nums[minimum]>=nums[j]){
+                    minimum=j;
+                }
+            }
+            
+            int temp=nums[minimum];
+            nums[minimum]=nums[i];
+            nums[i]=temp;
+            
+        }
+        return nums;
+    }
+    public static int[] insertion(int nums[]){
+        for(int i=1;i<nums.length;i++){
+            int temp=nums[i];
+            int j=i-1;
+            while (j>0 && nums[j]>temp) {
+                nums[j+1]=nums[j];
+                j--;
+            }
+            nums[j+1]=temp;
+        }
+        return nums;
+    }
 
+    public static void main(String args[]){
+
+        int nums[]={1,7,3,1,9,4};
+        // bubbleSort(nums);
+        // selectionSort(nums);
+        insertion(nums);
+        for(int i=0;i<nums.length;i++){
+            System.out.print(nums[i]+" ");
+        }
+    }
+}
